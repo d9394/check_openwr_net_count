@@ -24,11 +24,11 @@ d4=$(($c4-$b4))
 e1=$(echo $d1 | awk '{print $0/1024/1024/1}')
 e3=$(echo $d3 | awk '{print $0/1024/1024}')
 
-ff="4G used total: send: "$e1" Mb,("$d2" packets); receive: "$e3" Mb,("$d4" packets)"
+ff="4G used total: \n\t send: "$e1" Mb,("$d2" packets); \n\t receive: "$e3" Mb,("$d4" packets)"
 
 (echo "From:<who@hellocq.net>";
 echo "TO:who@163.com";
 echo "Subject: xxxx_4G_traffic_count";
-echo $ff
-) | ssmtp -v who@163.com
+echo -e $ff
+) | ssmtp -v who@163.com,who2@263.com
 
